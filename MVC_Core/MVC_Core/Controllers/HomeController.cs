@@ -9,11 +9,13 @@ namespace MVC_Core.Controllers
 {
     public class HomeController : Controller 
     {
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
 
+        [HttpPost]
         public IActionResult Index(int start, int end)
         {
             return RedirectToAction("Result", new { start, end });
@@ -22,6 +24,9 @@ namespace MVC_Core.Controllers
         public IActionResult Result(int start, int end)
         {
             PersonOfTheYear person = new PersonOfTheYear();
+            List<PersonOfTheYear> peepsBetween = person.GetPoTY(start, end);
+
+            return View(peepsBetween);
         }
     }
 }
