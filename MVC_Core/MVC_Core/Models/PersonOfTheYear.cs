@@ -21,10 +21,10 @@ namespace MVC_Core.Models
         public List<PersonOfTheYear> GetPoTY (int start, int end)
         {
             List<PersonOfTheYear> peeps = new List<PersonOfTheYear>();
-            string path = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, @"wwwroot\personOfTheYear.csv"));
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../wwwroot/personOfTheYear.csv");
             string[] data = File.ReadAllLines(path);
 
-            for ( int i = 0; i < data.Length; i++)
+            for ( int i = 1; i < data.Length; i++)
             {
                 string[] allPoTY = data[i].Split(',');
 
@@ -34,7 +34,7 @@ namespace MVC_Core.Models
                     Honor = allPoTY[1],
                     Name = allPoTY[2],
                     Country = allPoTY[3],
-                    Birth_Year = Convert.ToInt32(allPoTY[4]),
+                    Birth_Year = (allPoTY[4] == "") ? 0 : Convert.ToInt32(allPoTY[4]),
                     DeathYear = (allPoTY[5] == "") ? 0 :Convert.ToInt32(allPoTY[5]),
                     Title = allPoTY[6],
                     Category = allPoTY[7],
