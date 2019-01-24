@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MVC_Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,16 @@ namespace MVC_Core.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        public IActionResult Index(int start, int end)
+        {
+            return RedirectToAction("Result", new { start, end });
+        }
+
+        public IActionResult Result(int start, int end)
+        {
+            PersonOfTheYear person = new PersonOfTheYear();
         }
     }
 }
