@@ -22,10 +22,12 @@ namespace MVC_Core.Models
         {
             List<PersonOfTheYear> peeps = new List<PersonOfTheYear>();
             string path = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, @"wwwroot\personOfTheYear.csv"));
-            string[] allPoTY = File.ReadAllLines(path);
+            string[] data = File.ReadAllLines(path);
 
-            for ( int i = 0; i < allPoTY.Length; i++)
+            for ( int i = 0; i < data.Length; i++)
             {
+                string[] allPoTY = data[i].Split(',');
+
                 peeps.Add(new PersonOfTheYear
                 {
                     Year = Convert.ToInt32(allPoTY[0]),
