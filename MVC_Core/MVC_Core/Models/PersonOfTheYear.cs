@@ -8,6 +8,8 @@ namespace MVC_Core.Models
 {
     public class PersonOfTheYear
     {
+        
+        // All the properties needed to get from csv file              
         public int Year { get; set; }
         public string Honor { get; set; }
         public string Name { get; set; }
@@ -18,6 +20,13 @@ namespace MVC_Core.Models
         public string Category { get; set; }
         public string Context { get; set; }
 
+
+        /// <summary>
+        /// Takes in two years, extracts data from a file and then filters it based on the two years entered by the user
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <returns>List of PoTY between inputed years</returns>
         public List<PersonOfTheYear> GetPoTY (int start, int end)
         {
             List<PersonOfTheYear> peeps = new List<PersonOfTheYear>();

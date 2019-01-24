@@ -26,7 +26,7 @@ namespace MVC_Core
                 app.UseDeveloperExceptionPage();
             }
 
-
+            // Sets the default page load to go to the home controller and run action Index to get the main page to load
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
