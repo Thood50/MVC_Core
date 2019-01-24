@@ -1,0 +1,36 @@
+﻿@model List<MVC_Core.Models.PersonOfTheYear>
+
+<link href="~/StyleSheet.css" rel="stylesheet" />
+
+<h2>Person of The Year Results: </h2>
+<table>
+    <thead>
+        <tr>
+            <th>Year</th>
+            <th>Honor</th>
+            <th>Name</th>
+            <th>Country</th>
+            <th>Birth Year</th>
+            <th>Death Year</th>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Context</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var peep in Model)
+         {
+            <tr>
+                <td>@peep.Year</td>
+                <td>@peep.Honor</td>
+                <td>@peep.Name</td>
+                <td>@peep.Country</td>
+                <td>@peep.Birth_Year</td>
+                <td>@peep.DeathYear</td>
+                <td>@peep.Title</td>
+                <td>@peep.Category</td>
+                <td>@peep.Context</td>         
+            </tr>
+         }
+    </tbody>
+</table>
